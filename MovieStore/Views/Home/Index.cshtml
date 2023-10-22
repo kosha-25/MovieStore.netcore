@@ -1,0 +1,32 @@
+﻿@model IEnumerable<MovieStore.Models.Domain.Movie>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<style>
+    .card-img {
+        height: 170px; /* Adjust the height to your desired value */
+        object-fit: cover;
+    }
+</style>
+
+<div class="row m-2 row-cols-1 row-cols-md-3 g-4">
+    @foreach (var movie in Model)
+    {
+        <div class="col">
+            <div class="card">
+                <img src="@movie.ImgURL" class="card-img-top card-img" alt="@movie.Title">
+                <div class="card-body">
+                    <h5 class="card-title">@movie.Title</h5>
+                    <hr />
+                    <p class="card-text">Actor: <b>@movie.ActorName</b></p>
+                    <p class="card-text">Director: <b>@movie.DirectorName</b></p>
+                    <p class="card-text">Genre: <b>@movie.GenreName</b></p>
+                    <a asp-action="Details" asp-controller="Home" asp-route-id="@movie.Id" class="btn btn-primary">Buy Now</a>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>

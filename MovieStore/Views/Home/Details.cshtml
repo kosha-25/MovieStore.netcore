@@ -1,0 +1,12 @@
+﻿@model MovieStore.Models.Domain.Movie
+
+@{
+    ViewData["Title"] = "Movie Details";
+}
+
+<h2>@Model.Title</h2>
+<img src="@Model.ImgURL"/>
+<p>Price: &#8377;@Model.Price</p>
+
+<button >Buy</button> 
+<a asp-action="Index" asp-controller="Home" class="btn btn-primary">Back to Home</a>

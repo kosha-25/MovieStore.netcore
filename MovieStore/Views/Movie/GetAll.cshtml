@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MovieStore.Models.Domain.Movie>
+@{
+}
+
+<div class="container pt-3">
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-dark" href="/Movie/Add">+ Add more</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Movies</h3>
+
+            <table class="table table-stripped table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Genre</th>
+                        <th>Price</th>
+                        <th>ImgURL</th>
+                        <th>Actor</th>
+                        <th>Director</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Title</td>
+                            <td>@item.GenreName</td>
+                            <td>@item.Price</td>
+                            <td>@item.ImgURL</td>
+                            <td>@item.ActorName</td>
+                            <td>@item.DirectorName</td>
+                            <td>
+                                <a class="btn btn-success" href="/Movie/Update?id=@item.Id"><i class="bi bi-pen"></i></a> |
+                                <a class="btn btn-danger" onclick="return window.confirm('Are you sure?')" href="/Movie/Delete?id=@item.Id"><i class="bi bi-trash"></i></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
